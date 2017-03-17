@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fd3f00</color>
+    <color name="colorPrimaryDark">#045a7c</color>
+    <color name="colorAccent">#9b9999</color>
+    <color name="screenBag">#fc191f2d</color>
+    <color name="colorPrimaryLight">#daf2673a</color>
+
+
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="textboxbg">#29f1eaea</color>
+</resources>
