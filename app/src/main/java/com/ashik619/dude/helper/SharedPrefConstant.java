@@ -8,4 +8,5 @@ public class SharedPrefConstant {
     public static final String NAME = "Name";
     public static final String PHONE_NUMBER = "Phone";
     public static final String PLAYER_ID = "PlayerId";
+    public static final String TASK = "task";
 }

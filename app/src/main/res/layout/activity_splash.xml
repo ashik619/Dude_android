@@ -5,5 +5,43 @@
     android:layout_height="match_parent"
     android:background="@color/screenBag"
     tools:context="com.ashik619.dude.init.SplashActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo_large"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dude I'm Here"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorPrimary"
+            android:textSize="27dp" />
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find Your Crazy Friends"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="23dp" />
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Their Location in Just One Click"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21dp" />
+    </LinearLayout>
 
 </RelativeLayout>

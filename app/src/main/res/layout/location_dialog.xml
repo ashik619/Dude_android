@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:id="@+id/popup_element"
+    android:background="@drawable/dialog_bg">
+
+    <com.ashik619.dude.custom_views.IconTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please turn on Location"
+        android:textSize="23dp"
+        android:id="@+id/textView2"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/okbutton"
+        android:clickable="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView2"
+        android:background="@drawable/secondary_round_button_click">
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turn On Location"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="23dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

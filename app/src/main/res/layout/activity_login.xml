@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/screenBag"
     tools:context="com.ashik619.dude.LoginActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo_large"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_centerVertical="true">
+        android:id="@+id/mainLayout"
+        android:layout_gravity="center_vertical">
         <com.ashik619.dude.custom_views.CustomEditText
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -58,7 +65,10 @@
         </RelativeLayout>
 
     </LinearLayout>
-
-
-
-</RelativeLayout>
+    <include
+        android:id="@+id/loadingLayout"
+        layout="@layout/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+</FrameLayout>

@@ -3,11 +3,15 @@
     <color name="colorPrimary">#fd3f00</color>
     <color name="colorPrimaryDark">#045a7c</color>
     <color name="colorAccent">#9b9999</color>
-    <color name="screenBag">#fc191f2d</color>
+    <color name="screenBag">#fc161e3d</color>
     <color name="colorPrimaryLight">#daf2673a</color>
 
 
     <color name="black">#000</color>
     <color name="white">#fff</color>
     <color name="textboxbg">#29f1eaea</color>
+
+    <color name="dialogBg">#d6191f2d</color>
+    <color name="msgBg">#c0fd3f00</color>
+    <color name="textLight">#bd191f2d</color>
 </resources>

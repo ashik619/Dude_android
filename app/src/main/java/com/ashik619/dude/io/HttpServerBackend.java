@@ -36,8 +36,6 @@ public class HttpServerBackend {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
-//                    Ln.i("Request_",call.request().body().+"");
-
                     if (response.code() == 200 || response.code() == 201) {
 
                         try {
@@ -46,16 +44,16 @@ public class HttpServerBackend {
                             e.printStackTrace();
                         }
 
-                        back.onReturn(true, response.body().getAsJsonObject(), "");
+                        back.onReturn(true, response.body().getAsJsonObject(), 200);
 
                     } else {
                         errorCode = response.code();
                         try {
-                            Log.i("Response_", response.errorBody().string() + "");
+                           // Log.i("Response_", response.errorBody().string() + "");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        back.onReturn(false, null, handleErrorByCode(response.errorBody()));
+                        back.onReturn(false, null, 404);
                     }
 
                 }
@@ -64,7 +62,7 @@ public class HttpServerBackend {
                 public void onFailure(Call<JsonObject> call, Throwable t) {
                     //handleIt
 
-                    back.onReturn(false, null, message);
+                    back.onReturn(false, null, 404);
                     try {
                         Log.i("Response_", t.toString() + "");
                     } catch (Exception e) {
@@ -73,50 +71,18 @@ public class HttpServerBackend {
                 }
             });
         } else {
-            errorCode = -50;
             System.out.println("No internet");
-            //handleErrorByCode(null);
+            back.onReturn(false,null,-50);
         }
     }
 
-    private String handleErrorByCode(ResponseBody responseBody) {
 
-        JSONObject jsonObject;
-        try {
-
-            switch (errorCode) {
-
-                //response body is null for this case
-                case -50: {
-
-                    //message = context.getResources().getString(R.string.error_connecting);
-
-                    break;
-                }
-
-
-                default: {
-                    message = "Some random error, Error code: " + errorCode;
-                }
-            }
-        } catch (Exception e) {
-            Log.i("DebugInfo", "RetrofitErrorHandler");
-            errorCode = -10;
-        }
-
-        return message;
-
-    }
-
-    private void showUpdateDialog(boolean b) {
-
-    }
 
     public static class ResponseListener {
         public ResponseListener() {
         }
 
-        public void onReturn(boolean success, JsonObject data, String message) {
+        public void onReturn(boolean success, JsonObject data, int message) {
         }
 
         public void updateProgress(float x) {
@@ -133,8 +99,7 @@ public class HttpServerBackend {
 
 
         } catch (Exception e) {
-            System.out.println("CheckConnectivity Exception: " + e.getMessage());
-            Log.v("connectivity", e.toString());
+
         }
         return connected;
     }

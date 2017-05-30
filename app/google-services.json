@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "265795989294",
+    "project_id": "find-my-friend-1489505280339"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265795989294:android:491be814e4a2fa1b",
+        "android_client_info": {
+          "package_name": "com.ashik619.dude"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiogwiorWXmOLmlXaIIHmFOmRHr_BnXZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-96160671-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

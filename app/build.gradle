@@ -1,16 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.ashik619.dude"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         manifestPlaceholders = [onesignal_app_id: "7e8fe484-c8ba-437b-a4a1-2fa23f16f55f",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "568074675889"]
@@ -21,12 +22,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+
+        maven {
+            url "https://mint.splunk.com/gradle/"
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:design:25.1.1'
     compile 'com.onesignal:OneSignal:3.+@aar'
 
     // Required for OneSignal, even if you have added FCM.
@@ -45,6 +53,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:10.0.1'
     compile 'com.google.android.gms:play-services-location:10.0.1'
 
+    compile 'com.google.android.gms:play-services-analytics:10.0.1'
+
     compile 'com.akexorcist:googledirectionlibrary:1.0.5'
 
+    compile "com.splunk.mint:mint:4.4.0"
 }
+apply plugin: 'com.google.gms.google-services'

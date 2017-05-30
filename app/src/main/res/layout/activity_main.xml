@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:visibility="invisible"
         android:id="@+id/mainLayout">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,16 +19,52 @@
             android:id="@+id/continueButton"
             android:clickable="true"
             android:background="@drawable/secondary_round_button_click">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_map"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView"
+                android:layout_marginLeft="10dp"/>
             <com.ashik619.dude.custom_views.IconTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dude I'm Here"
+                android:id="@+id/textView"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorPrimary"
                 android:textSize="23dp" />
         </RelativeLayout>
 
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:id="@+id/requestedLayout"
+        android:visibility="invisible">
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reqMsg"
+            android:text=""
+            android:textSize="22dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"/>
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="He will Get your location"
+            android:layout_marginTop="30dp"
+            android:id="@+id/reqMsg2"
+            android:textSize="22dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+
     <include
         android:id="@+id/loadingLayout"
         layout="@layout/loading_layout"

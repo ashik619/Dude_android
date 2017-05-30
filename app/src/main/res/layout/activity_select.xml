@@ -10,7 +10,14 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:visibility="visible"
         android:id="@+id/mainLayout">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logo_large"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -26,33 +33,86 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="23dp" />
         </RelativeLayout>
-        <LinearLayout
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:id="@+id/requestedLayout"
+        android:visibility="invisible">
+        <com.ashik619.dude.custom_views.IconTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:id="@+id/requestedLayout"
-            android:visibility="invisible">
+            android:id="@+id/reqMsg"
+            android:textSize="22dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"/>
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please Wait!!"
+            android:layout_marginTop="30dp"
+            android:textSize="22dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/inviteLayout"
+        android:visibility="gone"
+        android:layout_gravity="center">
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="22dp"
+            android:text="Sorry we couldn't find him!!"
+            android:textColor="@color/colorPrimary" />
+
+
+        <com.ashik619.dude.custom_views.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="22dp"
+            android:text=""
+            android:id="@+id/inviteMsg"
+            android:textColor="@color/colorPrimary" />
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/inviteButton"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:background="@drawable/secondary_round_button_click">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_whatsapp"
+                android:layout_toLeftOf="@+id/textView"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"/>
             <com.ashik619.dude.custom_views.IconTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/reqMsg"
-                android:text=""
-                android:textSize="22dp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:textColor="@color/colorPrimary"/>
-            <com.ashik619.dude.custom_views.IconTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Please Wait!!"
-                android:layout_marginTop="30dp"
-                android:textSize="22dp"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:textColor="@color/colorPrimary"/>
-        </LinearLayout>
-    </FrameLayout>
+                android:id="@+id/textView"
+                android:text="Invite via WhatsApp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22dp" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
     <include
         android:id="@+id/loadingLayout"
         layout="@layout/loading_layout"

@@ -39,4 +39,12 @@ public class PrefHandler {
     public String getNumber() {
         return pref.getString(SharedPrefConstant.PHONE_NUMBER, null);
     }
+    public void setTask(String task) {
+        editor.putString(SharedPrefConstant.TASK, task);
+        editor.commit();
+    }
+    public String getTask() {
+        return pref.getString(SharedPrefConstant.TASK, null);
+    }
+
 }

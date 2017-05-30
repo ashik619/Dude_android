@@ -14,15 +14,21 @@ import android.os.Bundle;
 import com.ashik619.dude.LoginActivity;
 import com.ashik619.dude.R;
 import com.ashik619.dude.SelectActivity;
+import com.ashik619.dude.ShowMapActivity;
+import com.splunk.mint.Mint;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SplashActivity extends AppCompatActivity {
     private static int PERMISSION_ALL = 1;
-    String[] PERMISSIONS = {  android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION };
+    String[] PERMISSIONS = {  android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Mint.initAndStartSession(SplashActivity.this, "74083949");
         setContentView(R.layout.activity_splash);
         if (Build.VERSION.SDK_INT >= 23) {
             checkPermissions();
@@ -59,11 +65,11 @@ public class SplashActivity extends AppCompatActivity {
             boolean flag = false;
             for(int grantResult : grantResults){
                 if(grantResult != PackageManager.PERMISSION_GRANTED){
-                    System.out.println("permission not granted");
-                    //requestPermissionAgain();
+                  //  System.out.println("permission not granted");
+                    requestPermissionAgain();
                     flag = false;
                 } else {
-                    System.out.println("permission granted");
+                   // System.out.println("permission granted");
                     flag = true;
                 }
             }
@@ -73,14 +79,22 @@ public class SplashActivity extends AppCompatActivity {
 
         }
     }
+    void requestPermissionAgain(){
+        ActivityCompat.requestPermissions(SplashActivity.this, PERMISSIONS, PERMISSION_ALL);
+    }
     void permissionGranted(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if(DudeApplication.getLocalPrefInstance().getNumber()!= null && DudeApplication.getLocalPrefInstance().getNumber()!= null&& DudeApplication.getLocalPrefInstance().getName()!= null){
-                    Intent intent = new Intent(SplashActivity.this, SelectActivity.class);
-                    startActivity(intent);
-                    finish();
+                    String task = DudeApplication.getLocalPrefInstance().getTask();
+                    if (task != null){
+                        startTask(task);
+                    }else {
+                        Intent intent = new Intent(SplashActivity.this, SelectActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }else {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
@@ -88,6 +102,20 @@ public class SplashActivity extends AppCompatActivity {
                 }
                 //overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
             }
-        }, 500);
+        }, 1000);
+    }
+    void startTask(String task){
+        try {
+            JSONObject taskObject = new JSONObject(task);
+            Intent intent = new Intent(SplashActivity.this, ShowMapActivity.class);
+            intent.putExtra("lat",taskObject.getString("lat"));
+            intent.putExtra("lng",taskObject.getString("lng"));
+            intent.putExtra("friend_name",taskObject.getString("name"));
+            startActivity(intent);
+            finish();
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
     }
 }
